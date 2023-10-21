@@ -56,6 +56,7 @@
         webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
+        window.requestAnimationFrame(loop);
         window.requestAnimationFrame(translate);
 
         // append elements to the DOM
@@ -68,7 +69,6 @@
 
       async function loop() {
         webcam.update(); // update the webcam frame
-        await predict();
         window.requestAnimationFrame(loop);
       }
 
