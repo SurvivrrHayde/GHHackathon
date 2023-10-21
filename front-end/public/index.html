@@ -57,7 +57,6 @@
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
-        window.requestAnimationFrame(translate);
 
         // append elements to the DOM
         document.getElementById("webcam-container").appendChild(webcam.canvas);
@@ -77,11 +76,10 @@
 
       async function translate() {
         await sleepNow(3000);
-        await predict();
+        await predictTranslate();
         window.requestAnimationFrame(translate);
       }
 
-      // run the webcam image through the image model
       async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
@@ -97,6 +95,20 @@
           "The best predicition is: " + prediction[bestIndex].className;
         console.log(prediction[bestIndex].className);
         labelContainer.childNodes[0].innerHTML = classPrediction;
+      }
+
+      // run the webcam image through the image model
+      async function predictTranslate() {
+        // predict can take in an image, video or canvas html element
+        const prediction = await model.predict(webcam.canvas);
+        let best = 0;
+        let bestIndex = 0;
+        for (let i = 0; i < maxPredictions; i++) {
+          if (prediction[i].probability > best) {
+            best = prediction[i].probability;
+            bestIndex = i;
+          }
+        }
         translatedWord.childNodes[0].innerHTML =
           translatedWord.childNodes[0].innerHTML +
           prediction[bestIndex].className;

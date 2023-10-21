@@ -1,9 +1,6 @@
 import "./App.css";
-import { useEffect } from 'react';
 
 function App() {
-
-
 
   return (
     <div className="App">
@@ -12,6 +9,7 @@ function App() {
       </button>
       <div id="webcam-container"></div>
       <div id="label-container"></div>
+      <button onClick={window.requestAnimationFrame(window.translate)}> Start Translating </button>
       <div id="translated-word"></div>
     </div>
   );
