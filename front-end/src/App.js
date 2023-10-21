@@ -12,6 +12,7 @@ function App() {
       </button>
       <div id="webcam-container"></div>
       <div id="label-container"></div>
+      <div id="translated-word"></div>
     </div>
   );
 }
