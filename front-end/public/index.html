@@ -75,14 +75,16 @@
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
         let best = 0;
+        let bestIndex = 0;
         for (let i = 0; i < maxPredictions; i++) {
-          if (prediction[i] > best) {
-            best = prediction[i];
-            const index = i;
+          if (prediction[i].probability > best) {
+            best = prediction[i].probability;
+            bestIndex = i;
           }
         }
         const classPrediction =
-            "The best predicition is: " + prediction[index].className;
+            "The best predicition is: " + prediction[bestIndex].className;
+          console.log(prediction[bestIndex].className);
           labelContainer.childNodes[0].innerHTML = classPrediction;
       }
     </script>
