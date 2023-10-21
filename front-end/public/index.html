@@ -78,11 +78,12 @@
         for (let i = 0; i < maxPredictions; i++) {
           if (prediction[i] > best) {
             best = prediction[i];
+            const index = i;
           }
-          const classPrediction =
-            "The best predicition is: " + prediction[i].className;
-          labelContainer.childNodes[0].innerHTML = classPrediction;
         }
+        const classPrediction =
+            "The best predicition is: " + prediction[index].className;
+          labelContainer.childNodes[0].innerHTML = classPrediction;
       }
     </script>
 
