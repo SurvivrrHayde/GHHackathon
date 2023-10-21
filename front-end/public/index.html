@@ -76,7 +76,7 @@
         new Promise((resolve) => setTimeout(resolve, delay));
 
       async function translate() {
-        sleepNow(3000);
+        await sleepNow(3000);
         await predict();
         window.requestAnimationFrame(translate);
       }
