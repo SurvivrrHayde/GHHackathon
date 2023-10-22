@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 
 function Translator() {
   const URL = "https://teachablemachine.withgoogle.com/models/59XyxdpF1/";
-  let model, webcam, labelContainer, maxPredictions;
+  let model, webcam, maxPredictions;
   const [translatedWord, setTranslatedWord] = useState("");
   const [predictedLetter, setPredictedLetter] = useState("");
+  let translating = false;
 
   async function init() {
     const modelURL = URL + "model.json";
@@ -118,11 +119,11 @@ function Translator() {
               <div className="overlay-element bottom-right"></div>
             </div>
           </div>
-          <p>The Current ASL Translation is: {predictedLetter}</p>
+          {translating ? <p>The Current ASL Translation is: {predictedLetter}</p> : <p>Current Translation: {translatedWord}</p>}
           <button onClick={() => window.requestAnimationFrame(translate)}>
             Start Translating
           </button>
-          <p>{translatedWord}</p>
+          
         </main>
       </div>
     </div>
