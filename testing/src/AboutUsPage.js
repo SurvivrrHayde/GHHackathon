@@ -28,13 +28,11 @@ function AboutUsPage() {
             </nav>
           </div>
         </header>
-        <p>AboutUsPage</p>
+        <h3>About Us</h3>
         <p>
-          We are third year Computer Science majors at the University of Virginia.
-        </p>
-        <h3>Project</h3>
-        <p>
-          
+          We are third year computer science students at the University of Virginia's School of Engineering and Applied Science.
+          We recognized the barriers of communication that deaf and hard-of-hearing individuals face everyday, and wanted to create
+          a tool that can be used by both 
         </p>
         <h3>Matthew Haid</h3>
         <p>
