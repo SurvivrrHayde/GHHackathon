@@ -9,7 +9,7 @@ function AboutUsPage() {
       style={{ height: "100vh" }}
     >
       <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header style={{marginBottom: "100px"}}>
+        <header style={{ marginBottom: "100px" }}>
           <div>
             <h3 className="float-md-start mb-0">ASL Translator</h3>
             <nav className="nav nav-masthead justify-content-center float-md-end">
@@ -30,18 +30,20 @@ function AboutUsPage() {
           </div>
         </header>
 
-        <main className="px-3" style={{textAlign: "center"}}>
+        <main className="px-3" style={{ textAlign: "center" }}>
           <h1>Motivation</h1>
           <p className="lead">
-            Revolutionizing the way we communicate, our cutting-edge app employs
-            state-of-the-art machine learning image classification to
-            instantaneously transform American Sign Language (ASL) into text,
-            fostering seamless understanding between Deaf and hearing
-            individuals.
+            The motivation behind our project,
+            stems from a deep-seated commitment to inclusivity and breaking down
+            communication barriers. In a world that thrives on diverse
+            interactions, it's essential to recognize the critical need for
+            bridging the gap between Deaf and hearing communities. American Sign
+            Language (ASL) is a beautiful, expressive language, yet its
+            understanding is often limited to those who have learned it.
           </p>
         </main>
-        <div style={{ display: "flex", width: "90vw", marginLeft: "-21vw"}}>
-          <div style={{width: "25vw"}}>
+        <div style={{ display: "flex", width: "90vw", marginLeft: "-21vw" }}>
+          <div style={{ width: "25vw" }}>
             <h3>Matthew Haid</h3>
             <p className="lead">
               Matthew Haid is an aspiring graduate student with a keen focus on
@@ -54,7 +56,7 @@ function AboutUsPage() {
               computer science and his leadership within it.
             </p>
           </div>
-          <div style={{width: "25vw"}}>
+          <div style={{ width: "25vw" }}>
             <h3>Sarah Warren</h3>
             <p className="lead">
               Sarah Warren is a driven individual with a clear career goal of
@@ -67,7 +69,7 @@ function AboutUsPage() {
             </p>
           </div>
 
-          <div style={{width: "25vw"}}>
+          <div style={{ width: "25vw" }}>
             <h3>Helen Yao</h3>
             <p className="lead">
               Helen Yao is a multifaceted and dedicated student, actively
