@@ -1,10 +1,13 @@
 import "./App.css";
 import * as tf from '@tensorflow/tfjs';
 import * as tmImage from '@teachablemachine/image';
+import { useEffect, useState } from "react";
 
 function Translator() {
   const URL = "https://teachablemachine.withgoogle.com/models/59XyxdpF1/";
   let model, webcam, labelContainer, maxPredictions;
+  const [translatedWord, setTranslatedWord] = useState("");
+  const [predictedLetter, setPredictedLetter] = useState("");
 
   async function init() {
     const modelURL = URL + "model.json";
@@ -26,14 +29,11 @@ function Translator() {
 
     // append elements to the DOM
     document.getElementById("webcam-container").appendChild(webcam.canvas);
-    labelContainer = document.getElementById("label-container");
-    const translatedWord = document.getElementById("translated-word");
-    translatedWord.appendChild(document.createElement("p"));
-    labelContainer.appendChild(document.createElement("div"));
   }
 
   async function loop() {
     webcam.update(); // update the webcam frame
+    await predict();
     window.requestAnimationFrame(loop);
   }
 
@@ -57,10 +57,7 @@ function Translator() {
         bestIndex = i;
       }
     }
-    const classPrediction =
-      "The best predicition is: " + prediction[bestIndex].className;
-    console.log(prediction[bestIndex].className);
-    labelContainer.childNodes[0].innerHTML = classPrediction;
+    setPredictedLetter(prediction[bestIndex].className)
   }
 
   // run the webcam image through the image model
@@ -75,10 +72,12 @@ function Translator() {
         bestIndex = i;
       }
     }
-    const translatedWord = document.getElementById("translated-word");
-    translatedWord.childNodes[0].innerHTML =
-      translatedWord.childNodes[0].innerHTML + prediction[bestIndex].className;
+    setTranslatedWord(translatedWord + prediction[bestIndex].className);
   }
+
+  useEffect(() => {
+    init();
+  }, []);
 
   return (
     <div
@@ -110,13 +109,10 @@ function Translator() {
             </nav>
           </div>
         </header>
-        <button onClick={() => init()}>
-        start
-      </button>
       <div id="webcam-container"></div>
-      <div id="label-container"></div>
-      {/* <button onClick={window.requestAnimationFrame(window.translate)}> Start Translating </button> */}
-      <div id="translated-word"></div>
+      <p>The best predicition is: {predictedLetter}</p>
+      <button onClick={() => window.requestAnimationFrame(translate())}> Start Translating </button>
+      <p>{translatedWord}</p>
       </div>
     </div>
   );
