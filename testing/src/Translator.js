@@ -113,14 +113,16 @@ function Translator() {
         <main className="px-3">
           <div id="webcam-container">
             <div className="overlay">
+            <div class="overlay-helper">
               <div className="overlay-element top-left"></div>
               <div className="overlay-element top-right"></div>
               <div className="overlay-element bottom-left"></div>
               <div className="overlay-element bottom-right"></div>
+              </div>
             </div>
           </div>
-          {translating ? <p>The Current ASL Translation is: {predictedLetter}</p> : <p>Current Translation: {translatedWord}</p>}
-          <button onClick={() => window.requestAnimationFrame(translate)}>
+          {!translating ? <p>The Current ASL Translation is: {predictedLetter}</p> : <p>Current Translation: {translatedWord}</p>}
+          <button onClick={() => {translating = true; window.requestAnimationFrame(translate);}}>
             Start Translating
           </button>
           

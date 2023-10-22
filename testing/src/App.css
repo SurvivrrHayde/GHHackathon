@@ -214,3 +214,9 @@ body {
   bottom: var(--border-space);
   right: var(--border-space);
 }
+
+.overlay-helper {
+  position: relative;
+  width: 100%; /* make this element same size as the wrapper */
+  height: 100%;
+}
