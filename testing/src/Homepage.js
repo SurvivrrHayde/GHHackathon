@@ -4,7 +4,10 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function Homepage() {
   return (
-    <div className="d-flex text-center text-bg-dark" style={{height: '100vh'}}>
+    <div
+      className="d-flex text-center text-bg-dark"
+      style={{ height: "100vh" }}
+    >
       <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header className="mb-auto">
           <div>
@@ -13,14 +16,14 @@ function Homepage() {
               <a
                 className="nav-link fw-bold py-1 px-0 active"
                 aria-current="page"
-                href="#"
+                href="/"
               >
                 Home
               </a>
-              <a className="nav-link fw-bold py-1 px-0" href="#">
+              <a className="nav-link fw-bold py-1 px-0" href="/aboutUs">
                 About Us
               </a>
-              <a className="nav-link fw-bold py-1 px-0" href="#">
+              <a className="nav-link fw-bold py-1 px-0" href="/translator">
                 Translator
               </a>
             </nav>
@@ -36,7 +39,7 @@ function Homepage() {
           </p>
           <p className="lead">
             <a
-              href="#"
+              href="/translator"
               className="btn btn-lg btn-light fw-bold border-white bg-white"
             >
               Translate
@@ -46,7 +49,8 @@ function Homepage() {
 
         <footer className="mt-auto text-white-50">
           <p>
-            Created by Matthew Haid, Helen Yao, and Sarah Warren for Girls Who Code Hackathon Fall 2023
+            Created by Matthew Haid, Helen Yao, and Sarah Warren for Girls Who
+            Code Hackathon Fall 2023
           </p>
         </footer>
       </div>

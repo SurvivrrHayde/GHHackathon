@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PageNotFound from './404.JPEG'
+import PageNotFound from './404.jpg'
 function NotFoundPage() {
   return (<div>
-    <img src={PageNotFound}  />
+    <img src={PageNotFound} />
     <p style={{textAlign:"center"}}>
       <Link to="/">Go to Home </Link>
     </p>
