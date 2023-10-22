@@ -178,7 +178,7 @@ body {
   width: 720px;
   height: 480px;
 
-  --border-style: 2px solid red;
+  --border-style: 2px solid rgb(0, 0, 0);
   --border-space: 20px;
 }
 
