@@ -111,7 +111,7 @@ function Translator() {
         </header>
       <div id="webcam-container"></div>
       <p>The best predicition is: {predictedLetter}</p>
-      <button onClick={() => window.requestAnimationFrame(translate())}> Start Translating </button>
+      <button onClick={() => window.requestAnimationFrame(translate)}> Start Translating </button>
       <p>{translatedWord}</p>
       </div>
     </div>
