@@ -34,6 +34,9 @@ function Translator() {
 
   async function loop() {
     webcam.update(); // update the webcam frame
+    if (!translating) {
+      await predict();
+    }
     window.requestAnimationFrame(loop);
   }
 
