@@ -9,17 +9,18 @@ function AboutUsPage() {
       style={{ height: "100vh" }}
     >
       <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header className="mb-auto">
+        <header style={{marginBottom: "100px"}}>
           <div>
             <h3 className="float-md-start mb-0">ASL Translator</h3>
             <nav className="nav nav-masthead justify-content-center float-md-end">
-              <a
-                className="nav-link fw-bold py-1 px-0"
-                href="/"
-              >
+              <a className="nav-link fw-bold py-1 px-0" href="/">
                 Home
               </a>
-              <a className="nav-link fw-bold py-1 px-0 active" href="/aboutUs" aria-current="page">
+              <a
+                className="nav-link fw-bold py-1 px-0 active"
+                href="/aboutUs"
+                aria-current="page"
+              >
                 About Us
               </a>
               <a className="nav-link fw-bold py-1 px-0" href="/translator">
@@ -28,25 +29,57 @@ function AboutUsPage() {
             </nav>
           </div>
         </header>
-        <h3>About Us</h3>
-        <p>
-          We are third year computer science students at the University of Virginia's School of Engineering and Applied Science.
-          We recognized the barriers of communication that deaf and hard-of-hearing individuals face everyday, and wanted to create
-          a tool that can be used by both 
-        </p>
-        <h3>Matthew Haid</h3>
-        <p>
-          Matthew is a an active member in Theta Tau, UVa's Engineering fraternity. Matthew has been the head lab teaching assitant for computer systems and organization 1 for three semesters, 
-          and is also a teaching assistant for computer systems and organization 2.
-        </p>
-        <h3>Helen Yao</h3>
-        <p>
-          Helen is also an active member of Theta Tau, and a teaching assistant for data structures and algorithms 1 
-        </p>
-        <h3>Sarah Warren</h3>
-        <p>
-          Sarah is the head grading teaching assistant for computer systems and organization 1.
-        </p>
+
+        <main className="px-3" style={{textAlign: "center"}}>
+          <h1>Motivation</h1>
+          <p className="lead">
+            Revolutionizing the way we communicate, our cutting-edge app employs
+            state-of-the-art machine learning image classification to
+            instantaneously transform American Sign Language (ASL) into text,
+            fostering seamless understanding between Deaf and hearing
+            individuals.
+          </p>
+        </main>
+        <div style={{ display: "flex", width: "90vw", marginLeft: "-21vw"}}>
+          <div style={{width: "25vw"}}>
+            <h3>Matthew Haid</h3>
+            <p className="lead">
+              Matthew Haid is an aspiring graduate student with a keen focus on
+              Machine Learning, actively contributing to his academic journey.
+              He also plays a significant role within the UVA community as an
+              active member of Theta Tau, the coed engineering fraternity.
+              Currently serving as the Head TA for Computer Systems and
+              Organization 1, his dedication to both academics and
+              extracurriculars reflects a strong commitment to the field of
+              computer science and his leadership within it.
+            </p>
+          </div>
+          <div style={{width: "25vw"}}>
+            <h3>Sarah Warren</h3>
+            <p className="lead">
+              Sarah Warren is a driven individual with a clear career goal of
+              becoming a software engineer, and her current role as Head TA for
+              Computer Systems and Organization 1 speaks to her dedication to
+              the field. Beyond her academic pursuits, she holds the esteemed
+              position of Vice President for the SurfRider Foundation at UVA,
+              demonstrating her commitment to environmental conservation and
+              leadership within her university's community.
+            </p>
+          </div>
+
+          <div style={{width: "25vw"}}>
+            <h3>Helen Yao</h3>
+            <p className="lead">
+              Helen Yao is a multifaceted and dedicated student, actively
+              participating in UVA's academic landscape as a member of Theta
+              Tau, TA for both Intro to Programming and Data Structures and
+              Algorithms 1, and offering her expertise as a tutor for the
+              engineering school. Her extensive involvement in both educational
+              and extracurricular activities showcases her unwavering commitment
+              to her academic community.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

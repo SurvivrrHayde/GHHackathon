@@ -88,7 +88,7 @@ function Translator() {
       style={{ height: "100vh" }}
     >
       <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header className="mb-auto">
+        <header style={{marginBottom: "100px"}}>
           <div>
             <h3 className="float-md-start mb-0">ASL Translator</h3>
             <nav className="nav nav-masthead justify-content-center float-md-end">
@@ -118,7 +118,6 @@ function Translator() {
           <button onClick={() => {setTranslating(true); window.requestAnimationFrame(translate);}}>
             Start Translating
           </button>
-          
         </main>
       </div>
     </div>

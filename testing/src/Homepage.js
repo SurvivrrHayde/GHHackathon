@@ -33,9 +33,7 @@ function Homepage() {
         <main className="px-3">
           <h1>Welcome.</h1>
           <p className="lead">
-            Cover is a one-page template for building simple and beautiful home
-            pages. Download, edit the text, and add your own fullscreen
-            background photo to make it your own.
+          Revolutionizing the way we communicate, our cutting-edge app employs state-of-the-art machine learning image classification to instantaneously transform American Sign Language (ASL) into text, fostering seamless understanding between Deaf and hearing individuals.
           </p>
           <p className="lead">
             <a
