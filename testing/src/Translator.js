@@ -1,13 +1,14 @@
 import "./App.css";
-import * as tf from '@tensorflow/tfjs';
-import * as tmImage from '@teachablemachine/image';
+import * as tf from "@tensorflow/tfjs";
+import * as tmImage from "@teachablemachine/image";
 import { useEffect, useState } from "react";
 
 function Translator() {
   const URL = "https://teachablemachine.withgoogle.com/models/59XyxdpF1/";
-  let model, webcam, labelContainer, maxPredictions;
+  let model, webcam, maxPredictions;
   const [translatedWord, setTranslatedWord] = useState("");
   const [predictedLetter, setPredictedLetter] = useState("");
+  let translating = false;
 
   async function init() {
     const modelURL = URL + "model.json";
@@ -57,7 +58,7 @@ function Translator() {
         bestIndex = i;
       }
     }
-    setPredictedLetter(prediction[bestIndex].className)
+    setPredictedLetter(prediction[bestIndex].className);
   }
 
   // run the webcam image through the image model
@@ -109,10 +110,21 @@ function Translator() {
             </nav>
           </div>
         </header>
-      <div id="webcam-container"></div>
-      <p>The best predicition is: {predictedLetter}</p>
-      <button onClick={() => window.requestAnimationFrame(translate())}> Start Translating </button>
-      <p>{translatedWord}</p>
+        <main className="px-3">
+          <div id="webcam-container">
+            <div className="overlay">
+              <div className="overlay-element top-left"></div>
+              <div className="overlay-element top-right"></div>
+              <div className="overlay-element bottom-left"></div>
+              <div className="overlay-element bottom-right"></div>
+            </div>
+          </div>
+          {translating ? <p>The Current ASL Translation is: {predictedLetter}</p> : <p>Current Translation: {translatedWord}</p>}
+          <button onClick={() => window.requestAnimationFrame(translate)}>
+            Start Translating
+          </button>
+          
+        </main>
       </div>
     </div>
   );
