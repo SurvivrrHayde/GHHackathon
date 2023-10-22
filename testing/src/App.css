@@ -172,3 +172,45 @@ body {
   text-align: center;
   background-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1));
 }
+
+.overlay {
+  position: relative;
+  width: 720px;
+  height: 480px;
+
+  --border-style: 2px solid red;
+  --border-space: 20px;
+}
+
+.overlay-element {
+  position: absolute;
+  width: 150px; /* controls the length of the borders */
+  height: 100px;  /* controls the height of the borders */
+}
+
+.overlay .top-left {
+  border-left: var(--border-style);
+  border-top: var(--border-style);
+  top: var(--border-space);
+  left: var(--border-space);
+}
+
+.overlay .top-right {
+  border-right: var(--border-style);
+  border-top: var(--border-style);
+  top: var(--border-space);
+  right: var(--border-space);
+}
+
+.overlay .bottom-left {
+  border-left: var(--border-style);
+  border-bottom: var(--border-style);
+  bottom: var(--border-space);
+}
+
+.overlay .bottom-right {
+  border-right: var(--border-style);
+  border-bottom: var(--border-style);
+  bottom: var(--border-space);
+  right: var(--border-space);
+}
