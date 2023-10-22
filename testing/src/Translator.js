@@ -34,7 +34,9 @@ function Translator() {
 
   async function loop() {
     webcam.update(); // update the webcam frame
-    await predict();
+    if (!translating) {
+      await predict();
+    }
     window.requestAnimationFrame(loop);
   }
 
@@ -111,16 +113,7 @@ function Translator() {
           </div>
         </header>
         <main className="px-3">
-          <div id="webcam-container">
-            <div className="overlay">
-            <div class="overlay-helper">
-              <div className="overlay-element top-left"></div>
-              <div className="overlay-element top-right"></div>
-              <div className="overlay-element bottom-left"></div>
-              <div className="overlay-element bottom-right"></div>
-              </div>
-            </div>
-          </div>
+          <div id="webcam-container"></div>
           {!translating ? <p>The Current ASL Translation is: {predictedLetter}</p> : <p>Current Translation: {translatedWord}</p>}
           <button onClick={() => {translating = true; window.requestAnimationFrame(translate);}}>
             Start Translating
