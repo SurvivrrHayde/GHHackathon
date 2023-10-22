@@ -4,11 +4,11 @@ import * as tmImage from "@teachablemachine/image";
 import { useEffect, useState } from "react";
 
 function Translator() {
-  const URL = "https://teachablemachine.withgoogle.com/models/59XyxdpF1/";
+  const URL = "https://teachablemachine.withgoogle.com/models/kcVtMoS1Y/";
   let model, webcam, maxPredictions;
   const [translatedWord, setTranslatedWord] = useState("");
   const [predictedLetter, setPredictedLetter] = useState("");
-  let translating = false;
+  const [translating, setTranslating] = useState(false);
 
   async function init() {
     const modelURL = URL + "model.json";
@@ -115,7 +115,7 @@ function Translator() {
         <main className="px-3">
           <div id="webcam-container"></div>
           {!translating ? <p>The Current ASL Translation is: {predictedLetter}</p> : <p>Current Translation: {translatedWord}</p>}
-          <button onClick={() => {translating = true; window.requestAnimationFrame(translate);}}>
+          <button onClick={() => {setTranslating(true); window.requestAnimationFrame(translate);}}>
             Start Translating
           </button>
           
