@@ -25,18 +25,15 @@ function Translator() {
     webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
     await webcam.setup(); // request access to the webcam
     await webcam.play();
-    await sleepNow(3000);
     window.requestAnimationFrame(loop);
 
     // append elements to the DOM
     document.getElementById("webcam-container").appendChild(webcam.canvas);
   }
 
- const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
-
   async function loop() {
     webcam.update(); // update the webcam frame
-    await predict();
+    //await predict();
     window.requestAnimationFrame(loop);
   }
 
