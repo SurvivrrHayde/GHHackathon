@@ -37,15 +37,6 @@ function Translator() {
     window.requestAnimationFrame(loop);
   }
 
-  const sleepNow = (delay) =>
-    new Promise((resolve) => setTimeout(resolve, delay));
-
-  async function translate() {
-    await sleepNow(3000);
-    await predictTranslate();
-    window.requestAnimationFrame(translate);
-  }
-
   async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
@@ -58,21 +49,6 @@ function Translator() {
       }
     }
     setPredictedLetter(prediction[bestIndex].className);
-  }
-
-  // run the webcam image through the image model
-  async function predictTranslate() {
-    // predict can take in an image, video or canvas html element
-    const prediction = await model.predict(webcam.canvas);
-    let best = 0;
-    let bestIndex = 0;
-    for (let i = 0; i < maxPredictions; i++) {
-      if (prediction[i].probability > best) {
-        best = prediction[i].probability;
-        bestIndex = i;
-      }
-    }
-    setTranslatedWord(translatedWord + prediction[bestIndex].className);
   }
 
   useEffect(() => {
@@ -111,10 +87,7 @@ function Translator() {
         </header>
         <main className="px-3">
           <div id="webcam-container"></div>
-          {!translating ? <p>The Current ASL Translation is: {predictedLetter}</p> : <p>Current Translation: {translatedWord}</p>}
-          <button onClick={() => {setTranslating(true); window.requestAnimationFrame(translate);}}>
-            Start Translating
-          </button>
+          <p>The Current ASL Translation is: {predictedLetter}</p>
         </main>
       </div>
     </div>
